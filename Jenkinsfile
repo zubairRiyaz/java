@@ -21,6 +21,13 @@ pipeline {
             
             }
         }
+        stage('Build docker image') {
+            steps {
+                sh 'docker build -t my-java-app:latest .'
+                
+            
+            }
+        }
      }
     post {
        always {
