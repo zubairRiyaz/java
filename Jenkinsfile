@@ -1,8 +1,4 @@
 pipeline {
-    tools {
-        maven "MAVEN"
-        jdk "JDK"
-    }
   agent {
     kubernetes {
       yaml """
@@ -34,7 +30,10 @@ spec:
 """
               }
    }
-  
+  tools {
+        maven "MAVEN"
+        jdk "JDK"
+  }
   stages {
       stage('Initialize'){
             steps{
