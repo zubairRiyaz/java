@@ -62,7 +62,7 @@ spec:
             steps {
               container('docker') {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-           sh  'docker push zubairbhat722/my-app:latest'
+           sh  'docker push zubairbhat722/my-app'
            
               }
         }
