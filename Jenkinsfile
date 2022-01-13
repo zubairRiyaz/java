@@ -43,7 +43,7 @@ spec:
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/maven demo pipeline/") {
+                
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
                 }
             
