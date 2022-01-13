@@ -53,7 +53,7 @@ spec:
       steps {
         container('docker') {
           
-           sh 'docker build -t my-java-app:latest .'
+           sh 'docker build -t my-app:latest .'
         }
       }
     }
@@ -62,7 +62,7 @@ spec:
             steps {
               container('docker') {
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-           sh  'docker push zubairbhat722/my-java-app:latest'
+           sh  'docker push zubairbhat722/my-app:latest'
            
               }
         }
