@@ -1,6 +1,7 @@
 # base image
 FROM openjdk:latest
-ADD /target/my-app-1.0-SNAPSHOT.jar my-app.jar
-RUN javac -jar my-app.jar
+RUN mkdir /app
+ADD /target/my-app-1.0-SNAPSHOT.jar /app/my-app.jar
+WORKDIR /app
 CMD java -jar /my-app.jar
 
