@@ -69,7 +69,13 @@ spec:
                   
           }
     }
-    
+    stage('Scan') {
+      steps {
+        withSonarQubeEnv(installationName: 'jenkinsS') {
+          sh 'mvn sonar:sonar'
+        }
+      }
+    }  
     stage('Deploy App') {
       steps {
         script {
