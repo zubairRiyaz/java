@@ -2,5 +2,5 @@
 FROM openjdk:latest
 COPY . src/java
 WORKDIR src/java
-RUN ["javac", "App.java"]
+RUN ["javac", "/src/main/java/App.java"]
 ENTRYPOINT ["java", "App"]
