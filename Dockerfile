@@ -2,5 +2,6 @@
 FROM openjdk:latest
 COPY . src/java
 WORKDIR src/java
-RUN ["javac", "/src/main/java/App.java"]
-ENTRYPOINT ["java", "App"]
+ADD /target/my-app-1.0-SNAPSHOT.jar my-app.jar
+CMD java -jar /my-app.jar
+
