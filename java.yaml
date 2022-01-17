@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: my-java-app:latest
+        image: my-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8010
