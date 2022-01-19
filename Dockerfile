@@ -7,7 +7,5 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 FROM adoptopenjdk/openjdk11:alpine-slim
 VOLUME /tmp
-ADD /target/my-app-1.0-SNAPSHOT.jar /app/my-app-1.0-SNAPSHOT.jar
-WORKDIR /app
-CMD "java" "-jar" "my-app-1.0-SNAPSHOT.jar"
+ENTRYPOINT ["java","-Dserver.port=${PORT}","-cp","app:app/lib/*","com.example.demo.DemoApplication"]
 
