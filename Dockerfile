@@ -2,8 +2,7 @@ FROM adoptopenjdk/openjdk11:alpine-slim as build
 WORKDIR /workspace/app
 COPY pom.xml .
 COPY mvnw .
-RUN chmod +x mvnw
-RUN ./mvnw install -DskipTests
+RUN mvn clean package -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 FROM adoptopenjdk/openjdk11:alpine-slim
