@@ -23,10 +23,10 @@ spec:
         resources:
             requests:
               cpu: "256m"
-              memory: "1024i"
+              memory: "400Mi"
             limits:
               cpu: "500m"
-              memory: "2048i"
+              memory: "500Mi"
         ports:
         - containerPort: 8010
 ---
