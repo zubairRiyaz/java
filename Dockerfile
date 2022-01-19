@@ -9,5 +9,4 @@ FROM openjdk:latest
 RUN mkdir /app
 ADD /target/my-app-1.0-SNAPSHOT.jar /app/my-app-1.0-SNAPSHOT.jar
 WORKDIR /app
-RUN java -cp my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 CMD "java" "-jar" "my-app-1.0-SNAPSHOT.jar"
