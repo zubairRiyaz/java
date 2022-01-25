@@ -9,6 +9,7 @@ metadata:
             label: mylabel
 spec:
   # Use service account that can deploy to all namespaces
+  ServiceAccountName: jenkins
   containers:
  
   - name: docker
