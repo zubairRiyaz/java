@@ -25,7 +25,7 @@ spec:
         path: /var/run/docker.sock
     - name: jenkins-data
       persistentVolumeClaim:
-          claimName: jenkins-pv-claim
+          claimName: jenkins-pvc
     
 """
               }
