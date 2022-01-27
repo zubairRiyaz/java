@@ -20,7 +20,6 @@ spec:
       - name: app
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
-        resources:
         ports:
         - containerPort: 8010
 ---
