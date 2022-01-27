@@ -21,11 +21,12 @@ spec:
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
         resources:
-            cpu: "800m"
-            memory: "800Mi"
+          requests:
+          cpu: 500m
+          memory: 1024Mi
         limits:
-            cpu: "1000m"
-            memory: "1024Mi"
+          cpu: 2000m
+          memory: 2048Mi  
         ports:
         - containerPort: 8010
 ---
