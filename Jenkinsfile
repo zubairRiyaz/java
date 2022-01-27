@@ -72,7 +72,7 @@ spec:
     }
     stage('Scan') {
       steps {
-        withSonarQubeEnv(installationName: 'jenkinsS') {
+        withSonarQubeEnv(installationName: 'jenkinsSonar') {
           sh 'mvn sonar:sonar'
         }
       }
