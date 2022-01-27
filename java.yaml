@@ -20,6 +20,12 @@ spec:
       - name: app
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
+        resources:
+            cpu: "800m"
+            memory: "800Mi"
+        limits:
+            cpu: "1000m"
+            memory: "1024Mi"
         ports:
         - containerPort: 8010
 ---
