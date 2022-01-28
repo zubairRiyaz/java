@@ -9,6 +9,7 @@ metadata:
             label: mylabel
 spec:
   # Use service account that can deploy to all namespaces
+  ServiceAccountName: jenkins
   containers:
  
   - name: docker
@@ -25,7 +26,7 @@ spec:
         path: /var/run/docker.sock
     - name: jenkins-data
       persistentVolumeClaim:
-          claimName: jenkins-pv-claim
+          claimName: jenkins
     
 """
               }
@@ -71,7 +72,7 @@ spec:
     }
     stage('Scan') {
       steps {
-        withSonarQubeEnv(installationName: 'jenkinsS') {
+        withSonarQubeEnv(installationName: 'jenkinsSonar') {
           sh 'mvn sonar:sonar'
         }
       }
