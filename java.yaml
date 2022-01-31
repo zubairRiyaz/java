@@ -4,7 +4,6 @@ kind: Deployment
 metadata:
   name: java-app
   namespace: jenkins
-  labels: java
 spec:
   replicas: 1
   selector:
