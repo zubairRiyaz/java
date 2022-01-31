@@ -13,13 +13,13 @@ spec:
       version: blue
   template:
     metadata:
-      name: java
+      name: java-app
       labels:
-        app: web
+        app: java
         version: blue
     spec:
       containers:
-      - name: java-app
+      - name: java-1
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
         resources:
@@ -35,12 +35,12 @@ spec:
 apiVersion: v1
 kind: Service 
 metadata:
-  name: java-service
+  name: java-app
   labels:
-    app: java-app
+    app: java
 spec:
   selector:
-    app: java-app
+    app: java
     version: blue
   type: NodePort
   ports:
