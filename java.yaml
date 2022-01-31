@@ -18,7 +18,7 @@ spec:
         version: blue
     spec:
       containers:
-      - name: java-1
+      - name: app
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
         resources:
