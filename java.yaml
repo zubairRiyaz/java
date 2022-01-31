@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-deployment
+  name: java-app
   namespace: jenkins
   labels: java
 spec:
@@ -19,7 +19,7 @@ spec:
         version: blue
     spec:
       containers:
-      - name: java
+      - name: java-app
         image: zubairbhat722/my-app:latest
         imagePullPolicy: Always
         resources:
@@ -35,12 +35,12 @@ spec:
 apiVersion: v1
 kind: Service 
 metadata:
-  name: java-deployment
+  name: java-service
   labels:
-    app: java
+    app: java-app
 spec:
   selector:
-    app: java
+    app: java-app
     version: blue
   type: NodePort
   ports:
