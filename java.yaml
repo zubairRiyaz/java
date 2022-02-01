@@ -5,12 +5,17 @@ metadata:
   name: java-app
   namespace: jenkins
 spec:
-  replicas: 1
+  replicas: 2
   minReadySeconds: 100
   selector:
     matchLabels:
       app: java
       version: blue
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavilable: 1
+      maxSurge: 1
   template:
     metadata:
       name: java-app
