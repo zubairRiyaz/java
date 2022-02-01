@@ -6,6 +6,7 @@ metadata:
   namespace: jenkins
 spec:
   replicas: 1
+  minReadySeconds: 100
   selector:
     matchLabels:
       app: java
