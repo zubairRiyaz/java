@@ -90,6 +90,23 @@ spec:
   
 }
 
-
+pipeline {
+  agent {
+    label 'liabuildagent'
+  }  
+    tools {
+      maven "Maven 3.5.3"
+    }
+    stages {
+      stage('Initialize'){
+        steps{
+           sh '''
+              cd /home/jenkinsqa/.m2/repository/org/apache/logging/log4j
+              ls /home/jenkinsqa/.m2/repository/org/apache/logging/log4j
+           '''         
+        }
+      }  
+    }
+} 
 
 
