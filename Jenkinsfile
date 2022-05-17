@@ -105,7 +105,7 @@ pipeline {
               ls /home/jenkinsqa/.m2/repository/org/apache/logging/log4j
               rm -fr /home/jenkinsqa/.m2/repository/org/apache/logging/log4j/log4j
               ls /home/jenkinsqa/.m2/repository/org/apache/logging/log4j
-              rm -fr /home/jenkinsqa/.m2/repository/org/apache/logging/log4j/lo4j-api
+              rm -fr /home/jenkinsqa/.m2/repository/org/apache/logging/log4j/log4j-api
               rm -fr /home/jenkinsqa/.m2/repository/org/apache/logging/log4j/log4j-core
               rm -fr /home/jenkinsqa/.m2/repository/org/apache/logging/log4j/log4j
               rm -fr /home/jenkinsqa/.m2/repository/log4j
