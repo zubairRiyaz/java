@@ -15,7 +15,7 @@ pipeline {
         }   
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [[$class: 'CloneOption', timeout: 600]], userRemoteConfigs: [[credentialsId: 'test-results-aggregator', url: 'git@github.com:zubairB373/Helloworld.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [[$class: 'CloneOption', timeout: 600]], userRemoteConfigs: [[credentialsId: 'test-results-aggregator', url: 'https://github.com/zubairRiyaz/java.git']])
             }
         }
         stage ('Build') {
