@@ -2,7 +2,7 @@ pipeline {
     agent any
     options {
         timestamps ()
-        copyArtifactPermission('criticaltestchild');
+        //copyArtifactPermission('criticaltestchild');
         skipDefaultCheckout(true)
     }
     stages {
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 
                 script {
-                    script {
+                  //script {
                         
                     //def jobsList = ['downstreamtest1', 'downstreamtest2']
                                 
@@ -50,12 +50,7 @@ pipeline {
                         //}]
                     //}
                     build job : "criticaltestchild", wait: true, propagate: false
-                        step ([$class: 'CopyArtifact',
-                            projectName: 'criticaltestchild',
-                            filter: "results.txt",
-                            target: 'Infra']);
-                        }
-                        testResultsAggregator jobs:[[jobName: 'criticaltestchild']] 
+                    testResultsAggregator jobs:[[jobName: 'criticaltestchild']] 
                     
                     //catch (err) {
                         //echo err.getMessage()
