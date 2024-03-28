@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    options {
+        timestamps ()
+        skipDefaultCheckout(true)
+    }
+    stages {
+        stage('Cleanup') {
+            steps {
+                // Clean before build
+                cleanWs()
+                echo "branch name: ${env.JOB_NAME}"
+            }
+        }   
+        stage('checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/master']], extensions: [[$class: 'CloneOption', timeout: 600]], userRemoteConfigs: [[credentialsId: 'resultsaggregator', url: 'git@github.com:zubairB373/Helloworld.git']])
+            }
+        }
+        stage ('Build') {
+            steps {
+                sh '''
+    
+                    echo $(date) > results.txt
+                '''
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh 'echo hello Test stage'
+            }
+        }
+    }
+     post {
+        always {
+            //archiveArtifacts allowEmptyArchive: true, artifacts:  'build/screenshots/**/*.*, build/version/**/*.*', fingerprint: true
+            //junit(testResults: 'build/test-results/**/*.xml', allowEmptyResults: true)
+            archiveArtifacts(artifacts: 'results.txt', allowEmptyArchive: true, fingerprint: true)
+            junit(testResults: 'results.xml', allowEmptyResults: true)
+        }
+    }                      
+}
